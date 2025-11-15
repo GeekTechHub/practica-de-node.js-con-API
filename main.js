@@ -10,19 +10,19 @@ const obtenerDatosAPI = async() => {
     const response = await fetch(url)
     const data = await response.json()
 
-data.results.forEach(element => {
-    const poster = document.createElement('img')
-    const title = document.createElement('h2')
-    const overview = document.createElement('p')
+    data.results.forEach(element => {
+        const poster = document.createElement('img')
+        const title = document.createElement('h2')
+        const overview = document.createElement('p')
 
-    poster.src = `${IMAGE_BASE_URL}${element.poster_path}`
-    title.textContent = `${element.title}`
-    overview.textContent = `${element.overview}`
+        poster.src = `${IMAGE_BASE_URL}${element.poster_path}`
+        title.textContent = `${element.title}`
+        overview.textContent = `${element.overview}`
 
-    root.appendChild(poster)
-    root.appendChild(title)
-    root.appendChild(overview)
-});
+        root.appendChild(poster)
+        root.appendChild(title)
+        root.appendChild(overview)
+    });
 }
 
 obtenerDatosAPI()
