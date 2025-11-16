@@ -1,33 +1,111 @@
+/*
+ * 🌟 Estilo VIP Profesional (Azul y Dorado) 🌟
+ */
+
+/* --- Estilo Base (Body) --- */
 body {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+    /* Fondo muy oscuro, casi negro, para una sensación de cine/VIP */
+    background-color: #111111;
+    /* Color de texto principal: blanco suave */
+    color: #EAEAEA;
+    /* Fuente elegante y moderna (se recomienda importarla o usar una alternativa como 'sans-serif') */
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    /* Un pequeño espaciado general */
+    margin: 0;
+    padding: 0;
+    /* Para centrar el contenido si es necesario */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
 }
 
+/* --- Títulos (H1) --- */
 h1 {
-    font-size: 32px;
-    font-weight: bold;
+    /* Color principal de acento: Dorado/Oro */
+    color: #FFD700;
+    font-size: 48px; /* Tamaño mayor para impacto */
+    font-weight: 700; /* Negrita fuerte */
     text-align: center;
-}
-  
-img {
-  display: inline-flexbox;
-  margin: auto;
-  max-width: 300px;
-  max-height: 300px;
+    /* Sombra de texto sutil para un efecto "brillante" */
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    margin: 40px 0 30px 0; /* Espaciado generoso */
+    /* Letras mayúsculas para un look más formal/exclusivo */
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
+/* --- Imágenes (Posters de Películas) --- */
+img {
+    /* Ajuste para un look de tarjeta o poster */
+    display: block;
+    margin: 20px auto;
+    /* Tamaño máximo definido */
+    max-width: 300px;
+    max-height: 450px; /* Adaptado a proporciones de poster (300x450, 2:3) */
+    width: 100%; /* Asegura que la imagen sea responsiva hasta el max-width */
+    height: auto;
+    /* Borde sutil Dorado */
+    border: 3px solid #FFD700;
+    /* Esquinas ligeramente redondeadas para un toque moderno */
+    border-radius: 8px;
+    /* Sombra para hacer que la imagen "flote" */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5), 0 0 10px rgba(255, 215, 0, 0.2);
+    /* Transición suave para efectos de hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+img:hover {
+    /* Efecto de levantamiento al pasar el ratón */
+    transform: scale(1.05);
+    /* Sombra más intensa */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+/* --- Botones (Reproducir/Acción) --- */
 button {
-  display: block;
-  margin: 20px auto;
-  padding: 10px 20px;
-  font-size: 24px;
-  background-color: #008CBA;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+    display: block;
+    margin: 30px auto;
+    padding: 15px 30px; /* Padding generoso */
+    font-size: 20px;
+    font-weight: 600;
+    /* Color principal de acento: Azul Profundo/Cobalto */
+    background-color: #007ACC;
+    /* Color de texto: Dorado/Oro */
+    color: #FFD700;
+    border: 2px solid #FFD700; /* Borde sólido Dorado */
+    border-radius: 30px; /* Bordes muy redondeados para un look "Premium" */
+    cursor: pointer;
+    /* Transición para efectos de hover */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s;
+    /* Sombra sutil */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    /* Letras mayúsculas para exclusividad */
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 button:hover {
-  background-color: #005F6B;
+    /* Cambio de fondo a un azul más oscuro */
+    background-color: #005A9C;
+    /* Sombra más prominente y un ligero "presionar" */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    transform: translateY(-2px);
 }
+
+button:active {
+    /* Efecto de clic */
+    transform: translateY(0);
+    background-color: #004A7C;
+}
+
+/* --- Contenedores (Si los tuvieras, por ejemplo, div.movie-card) --- */
+/*
+.movie-card {
+    background-color: #1A1A1A; // Fondo ligeramente más claro que el body
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 15px;
+}
+*/
