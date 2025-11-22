@@ -1,111 +1,241 @@
 /*
- * 🌟 Estilo VIP Profesional (Azul y Dorado) 🌟
+ * 🌟 ESTILO VIP PROFESIONAL (AZUL Y DORADO) 🌟
  */
+
+/* --- Variables de Color --- */
+:root {
+    --color-bg-dark: #111111;         
+    --color-card-dark: #1A1A1A;       
+    --color-gold: #FFD700;            
+    --color-blue: #03304e9f;            
+    --color-blue-hover: #0328437a;      
+    --color-text-light: #EAEAEA;      
+    --color-text-secondary: #AAAAAA;  
+}
 
 /* --- Estilo Base (Body) --- */
 body {
-    /* Fondo muy oscuro, casi negro, para una sensación de cine/VIP */
-    background-color: #111111;
-    /* Color de texto principal: blanco suave */
-    color: #EAEAEA;
-    /* Fuente elegante y moderna (se recomienda importarla o usar una alternativa como 'sans-serif') */
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-light);
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    /* Un pequeño espaciado general */
     margin: 0;
-    padding: 0;
-    /* Para centrar el contenido si es necesario */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     min-height: 100vh;
+    display: flex; 
+    flex-direction: column; 
+    overflow-x: hidden; 
 }
 
-/* --- Títulos (H1) --- */
-h1 {
-    /* Color principal de acento: Dorado/Oro */
-    color: #FFD700;
-    font-size: 48px; /* Tamaño mayor para impacto */
-    font-weight: 700; /* Negrita fuerte */
+/* --- 1. ENTRADA VIP (HERO SECTION) --- */
+.hero-section {
+    background: linear-gradient(rgba(0,0,0,0.7), var(--color-bg-dark)), 
+                url('https://picsum.photos/1920/800?movie') center/cover no-repeat;
+    height: 80vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    /* Sombra de texto sutil para un efecto "brillante" */
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-    margin: 40px 0 30px 0; /* Espaciado generoso */
-    /* Letras mayúsculas para un look más formal/exclusivo */
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    padding: 0 40px;
+    margin-bottom: 50px;
 }
 
-/* --- Imágenes (Posters de Películas) --- */
-img {
-    /* Ajuste para un look de tarjeta o poster */
-    display: block;
-    margin: 20px auto;
-    /* Tamaño máximo definido */
-    max-width: 300px;
-    max-height: 450px; /* Adaptado a proporciones de poster (300x450, 2:3) */
-    width: 100%; /* Asegura que la imagen sea responsiva hasta el max-width */
+.site-title {
+    font-size: 6vw; 
+    color: var(--color-gold);
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 10px;
+}
+
+.slogan {
+    font-size: 1.5rem;
+    color: var(--color-text-light);
+    margin-bottom: 30px;
+}
+
+.hero-button {
+    padding: 15px 40px;
+    font-size: 20px;
+    font-weight: 700;
+    background-color: var(--color-blue);
+    color: var(--color-gold);
+    border: 3px solid var(--color-gold); 
+    border-radius: 40px; 
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.hero-button:hover {
+    background-color: var(--color-blue-hover);
+    transform: scale(1.05);
+}
+
+/* --- 2. CONTENIDO PRINCIPAL Y BUSCADOR --- */
+.main-content {
+    flex: 1; 
+    padding: 0 0 40px 0; 
+    max-width: 100%; 
+}
+
+.search-container {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 0 20px;
+}
+
+#searchInput {
+    width: 80%;
+    max-width: 800px;
+    padding: 15px 25px;
+    font-size: 18px;
+    color: var(--color-text-light);
+    background-color: var(--color-card-dark);
+    border: 2px solid var(--color-blue);
+    border-radius: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+#searchInput:focus {
+    outline: none;
+    border-color: var(--color-gold);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+/* --- ESTILO DE PASILLOS HORIZONTALES (NETFLIX STYLE) --- */
+.movie-section {
+    margin-bottom: 50px;
+}
+
+.section-title {
+    color: var(--color-gold);
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0 0 15px 40px; 
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+}
+
+.movie-row {
+    display: flex;
+    overflow-x: scroll; 
+    padding: 10px 40px; 
+    gap: 20px; 
+    scroll-behavior: smooth;
+    
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+}
+
+.movie-row::-webkit-scrollbar {
+    display: none; 
+}
+
+/* --- Tarjeta de Película (Adaptada al Flex) --- */
+.movie-card {
+    flex: 0 0 auto; 
+    width: 250px; 
     height: auto;
-    /* Borde sutil Dorado */
-    border: 3px solid #FFD700;
-    /* Esquinas ligeramente redondeadas para un toque moderno */
+    background-color: var(--color-card-dark);
     border-radius: 8px;
-    /* Sombra para hacer que la imagen "flote" */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5), 0 0 10px rgba(255, 215, 0, 0.2);
-    /* Transición suave para efectos de hover */
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-img:hover {
-    /* Efecto de levantamiento al pasar el ratón */
-    transform: scale(1.05);
-    /* Sombra más intensa */
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 215, 0, 0.4);
+.movie-card:hover {
+    transform: scale(1.08); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8), 0 0 15px var(--color-gold);
+    z-index: 10; 
 }
 
-/* --- Botones (Reproducir/Acción) --- */
-button {
+.movie-poster {
     display: block;
-    margin: 30px auto;
-    padding: 15px 30px; /* Padding generoso */
-    font-size: 20px;
+    width: 100%;
+    height: 375px; 
+    object-fit: cover;
+    border: 2px solid var(--color-gold);
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.movie-title {
+    color: var(--color-text-light);
+    font-size: 1rem;
     font-weight: 600;
-    /* Color principal de acento: Azul Profundo/Cobalto */
-    background-color: #007ACC;
-    /* Color de texto: Dorado/Oro */
-    color: #FFD700;
-    border: 2px solid #FFD700; /* Borde sólido Dorado */
-    border-radius: 30px; /* Bordes muy redondeados para un look "Premium" */
-    cursor: pointer;
-    /* Transición para efectos de hover */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s;
-    /* Sombra sutil */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    /* Letras mayúsculas para exclusividad */
+    margin: 5px 0;
+}
+
+.movie-card button {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    width: 90%;
+    margin: 10px auto 0 auto;
+    border-radius: 20px;
+    border: 2px solid var(--color-gold);
+    background-color: var(--color-blue);
+    color: var(--color-gold);
+}
+
+
+/* --- FOOTER ELEGANTE --- */
+.vip-footer {
+    background-color: var(--color-card-dark); 
+    color: var(--color-text-secondary);
+    padding: 40px 20px 20px 20px;
+    font-size: 14px;
+    margin-top: auto; 
+    border-top: 1px solid var(--color-card-dark);
+}
+
+.footer-grid {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto 30px auto;
+    flex-wrap: wrap; 
+}
+
+.footer-col {
+    padding: 15px;
+    min-width: 150px;
+}
+
+.footer-title {
+    color: var(--color-gold);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-button:hover {
-    /* Cambio de fondo a un azul más oscuro */
-    background-color: #005A9C;
-    /* Sombra más prominente y un ligero "presionar" */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
-    transform: translateY(-2px);
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-button:active {
-    /* Efecto de clic */
-    transform: translateY(0);
-    background-color: #004A7C;
+.footer-col a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    line-height: 2;
+    transition: color 0.3s;
 }
 
-/* --- Contenedores (Si los tuvieras, por ejemplo, div.movie-card) --- */
-/*
-.movie-card {
-    background-color: #1A1A1A; // Fondo ligeramente más claro que el body
-    border: 1px solid #333;
-    border-radius: 10px;
-    padding: 15px;
-    margin: 15px;
+.footer-col a:hover {
+    color: var(--color-blue);
 }
-*/
+
+.footer-divider-small {
+    height: 1px;
+    width: 50%;
+    background-color: var(--color-blue);
+    margin: 10px 0;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #222;
+    padding-top: 20px;
+    font-size: 0.9rem;
+}
