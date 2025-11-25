@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Player — Mega</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;background:#111;color:#eee;padding:20px}
+.container{max-width:1000px;margin:0 auto}
+video{width:100%;background:#000}
+h1{font-size:20px}
+</style>
+</head>
+<body>
+<div class="container">
+<h1 id="title">Cargando...</h1>
+<video id="player" controls preload="metadata">
+<source id="source" src="" type="video/mp4">
+Tu navegador no soporta video.
+</video>
+</div>
+
+
+<script>
+// espera query ?id=...
+const params = new URLSearchParams(location.search);
+const id = params.get('id');
+if (!id) {
+document.getElementById('title').innerText = 'No movie id provided';
+throw new Error('No id');
+}
+
+
+fetch('/api/movies')
+.then(r => r.json())
+.then(list => {
+const movie = list.find(m => m.id === id);
+if (!movie) {
+document.getElementById('title').innerText = 'Pelicula no encontrada';
+return;
+}
+document.getElementById('title').innerText = movie.name;
+document.getElementById('source').src = `/stream/${movie.id}`;
+const v = document.getElementById('player');
+v.load();
+})
+.catch(err => {
+console.error(err);
+document.getElementById('title').innerText = 'Error cargando lista';
+});
+</script>
+</body>
+</html>
